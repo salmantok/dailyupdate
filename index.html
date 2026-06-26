@@ -3,45 +3,75 @@
     <head>
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
         <title>Daily Update App</title>
 
         <link rel="stylesheet" href="style.css" />
     </head>
     <body>
-        <header class="hero">
-            <div class="container">
-                <h1>Daily Update App</h1>
-                <p>Website responsif yang diperbarui setiap hari.</p>
+        <header class="navbar">
+            <div class="container nav-content">
+                <h1 class="logo">Daily Update App</h1>
 
-                <button id="updateButton">Lihat Update Hari Ini</button>
+                <nav>
+                    <a href="#">Beranda</a>
+                    <a href="#">Update</a>
+                    <a href="#">Tentang</a>
+                </nav>
+
+                <button id="themeButton">🌙</button>
             </div>
         </header>
 
-        <main class="container">
-            <section class="card">
-                <h2>Hari Pertama</h2>
+        <section class="hero">
+            <div class="container">
+                <h2>Website Harian Modern</h2>
 
                 <p>
-                    Selamat datang di aplikasi website harian. Setiap hari
-                    website ini dapat dikembangkan dengan fitur, artikel,
-                    tampilan, atau sistem baru.
+                    Dikembangkan dan diperbarui setiap hari dengan fitur baru.
                 </p>
+
+                <button id="welcomeButton">Mulai</button>
+            </div>
+        </section>
+
+        <main class="container">
+            <section class="stats">
+                <div class="stat-box">
+                    <h3>2</h3>
+                    <p>Total Hari</p>
+                </div>
+
+                <div class="stat-box">
+                    <h3>6</h3>
+                    <p>Fitur</p>
+                </div>
+
+                <div class="stat-box">
+                    <h3>100%</h3>
+                    <p>Responsive</p>
+                </div>
             </section>
 
-            <section class="card features">
-                <div class="feature-box">
-                    <h3>Responsive</h3>
-                    <p>Tampilan menyesuaikan desktop, tablet, dan mobile.</p>
+            <section class="updates">
+                <h2>Update Harian</h2>
+
+                <div class="update-card">
+                    <h3>Hari 1</h3>
+
+                    <p>
+                        Membuat website responsif sederhana menggunakan HTML,
+                        CSS, dan JavaScript.
+                    </p>
                 </div>
 
-                <div class="feature-box">
-                    <h3>Modern UI</h3>
-                    <p>Menggunakan desain sederhana dan bersih.</p>
-                </div>
+                <div class="update-card">
+                    <h3>Hari 2</h3>
 
-                <div class="feature-box">
-                    <h3>Daily Update</h3>
-                    <p>Website dapat terus diperbarui setiap hari.</p>
+                    <p>
+                        Menambahkan dark mode, navigasi modern, statistik, dan
+                        animasi interaktif.
+                    </p>
                 </div>
             </section>
         </main>
