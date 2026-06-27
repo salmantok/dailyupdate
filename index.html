@@ -2,6 +2,7 @@
 <html lang="id">
     <head>
         <meta charset="UTF-8" />
+
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
         <title>Daily Update App</title>
@@ -9,76 +10,98 @@
         <link rel="stylesheet" href="style.css" />
     </head>
     <body>
+        <div id="loader">
+            <div class="spinner"></div>
+        </div>
+
         <header class="navbar">
             <div class="container nav-content">
-                <h1 class="logo">Daily Update App</h1>
+                <h1 class="logo">DailyApp</h1>
 
-                <nav>
-                    <a href="#">Beranda</a>
-                    <a href="#">Update</a>
-                    <a href="#">Tentang</a>
+                <nav id="navMenu">
+                    <a href="#hero">Beranda</a>
+                    <a href="#updates">Update</a>
+                    <a href="#contact">Kontak</a>
                 </nav>
 
-                <button id="themeButton">🌙</button>
+                <div class="nav-actions">
+                    <button id="themeButton">🌙</button>
+
+                    <button id="menuButton">☰</button>
+                </div>
             </div>
         </header>
 
-        <section class="hero">
+        <section class="hero" id="hero">
             <div class="container">
-                <h2>Website Harian Modern</h2>
+                <h2>Daily Website Development</h2>
 
                 <p>
-                    Dikembangkan dan diperbarui setiap hari dengan fitur baru.
+                    Website modern yang terus berkembang setiap hari dengan
+                    fitur baru.
                 </p>
 
-                <button id="welcomeButton">Mulai</button>
+                <button id="startButton">Jelajahi</button>
             </div>
         </section>
 
         <main class="container">
+            <section class="search-section">
+                <input
+                    type="text"
+                    id="searchInput"
+                    placeholder="Cari update..."
+                />
+            </section>
+
             <section class="stats">
-                <div class="stat-box">
-                    <h3>2</h3>
+                <div class="stat-box reveal">
+                    <h3>3</h3>
                     <p>Total Hari</p>
                 </div>
 
-                <div class="stat-box">
-                    <h3>6</h3>
+                <div class="stat-box reveal">
+                    <h3>10+</h3>
                     <p>Fitur</p>
                 </div>
 
-                <div class="stat-box">
-                    <h3>100%</h3>
-                    <p>Responsive</p>
+                <div class="stat-box reveal">
+                    <h3>Modern</h3>
+                    <p>UI Design</p>
                 </div>
             </section>
 
-            <section class="updates">
+            <section class="updates" id="updates">
                 <h2>Update Harian</h2>
 
-                <div class="update-card">
+                <div class="update-card reveal">
                     <h3>Hari 1</h3>
 
-                    <p>
-                        Membuat website responsif sederhana menggunakan HTML,
-                        CSS, dan JavaScript.
-                    </p>
+                    <p>Membuat website responsive dasar.</p>
                 </div>
 
-                <div class="update-card">
+                <div class="update-card reveal">
                     <h3>Hari 2</h3>
 
+                    <p>Menambahkan dark mode dan statistik.</p>
+                </div>
+
+                <div class="update-card reveal">
+                    <h3>Hari 3</h3>
+
                     <p>
-                        Menambahkan dark mode, navigasi modern, statistik, dan
-                        animasi interaktif.
+                        Menambahkan sidebar mobile, pencarian, loading screen,
+                        dan animasi modern.
                     </p>
                 </div>
             </section>
         </main>
 
-        <footer>
+        <footer id="contact">
             <p>Daily Update App</p>
         </footer>
+
+        <div id="toast">Berhasil dimuat</div>
 
         <script src="script.js"></script>
     </body>

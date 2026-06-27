@@ -18,6 +18,10 @@ body.dark {
     --text: #f1f5f9;
 }
 
+html {
+    scroll-behavior: smooth;
+}
+
 body {
     font-family: Arial, sans-serif;
     background: var(--bg);
@@ -31,18 +35,52 @@ body {
     margin: auto;
 }
 
+#loader {
+    position: fixed;
+    inset: 0;
+    background: white;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    z-index: 9999;
+}
+
+.spinner {
+    width: 60px;
+    height: 60px;
+
+    border: 6px solid #ddd;
+    border-top-color: var(--primary);
+
+    border-radius: 50%;
+
+    animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+    to {
+        transform: rotate(360deg);
+    }
+}
+
 .navbar {
-    background: var(--card);
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.08);
     position: sticky;
     top: 0;
-    z-index: 100;
+
+    background: var(--card);
+
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.08);
+
+    z-index: 1000;
 }
 
 .nav-content {
     display: flex;
     justify-content: space-between;
     align-items: center;
+
     padding: 18px 0;
 }
 
@@ -61,13 +99,26 @@ nav a {
     font-weight: bold;
 }
 
-#themeButton {
+.nav-actions {
+    display: flex;
+    gap: 10px;
+}
+
+#themeButton,
+#menuButton {
     border: none;
     background: var(--primary);
+
     color: white;
+
     padding: 10px 14px;
     border-radius: 10px;
+
     cursor: pointer;
+}
+
+#menuButton {
+    display: none;
 }
 
 .hero {
@@ -75,7 +126,8 @@ nav a {
 
     color: white;
     text-align: center;
-    padding: 100px 20px;
+
+    padding: 120px 20px;
 }
 
 .hero h2 {
@@ -86,17 +138,21 @@ nav a {
 .hero p {
     max-width: 700px;
     margin: auto;
+
     margin-bottom: 25px;
 }
 
 .hero button {
-    padding: 14px 28px;
     border: none;
-    border-radius: 10px;
     background: white;
+
     color: var(--primary);
-    font-size: 1rem;
+
+    padding: 14px 28px;
+    border-radius: 10px;
+
     cursor: pointer;
+
     transition: 0.3s;
 }
 
@@ -104,23 +160,50 @@ nav a {
     transform: scale(1.05);
 }
 
-.stats {
+.search-section {
     margin-top: 40px;
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 20px;
 }
 
-.stat-box {
+.search-section input {
+    width: 100%;
+
+    padding: 16px;
+
+    border: none;
+    border-radius: 14px;
+
     background: var(--card);
-    padding: 30px;
-    border-radius: 16px;
-    text-align: center;
+
+    color: var(--text);
+
     box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08);
 }
 
-.stat-box h3 {
-    font-size: 2rem;
+.stats {
+    margin-top: 40px;
+
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+
+    gap: 20px;
+}
+
+.stat-box,
+.update-card {
+    background: var(--card);
+
+    padding: 30px;
+    border-radius: 16px;
+
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08);
+}
+
+.stat-box {
+    text-align: center;
+}
+
+.stat-box h3,
+.update-card h3 {
     color: var(--primary);
     margin-bottom: 10px;
 }
@@ -133,50 +216,77 @@ nav a {
     margin-bottom: 20px;
 }
 
-.update-card {
-    background: var(--card);
-    padding: 25px;
-    border-radius: 16px;
-    margin-bottom: 20px;
-    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08);
-
-    animation: fadeUp 0.5s ease;
-}
-
-.update-card h3 {
-    color: var(--primary);
-    margin-bottom: 10px;
-}
-
 footer {
     margin-top: 50px;
-    text-align: center;
-    padding: 30px 20px;
+
     background: #111827;
     color: white;
+
+    text-align: center;
+
+    padding: 30px 20px;
 }
 
-@keyframes fadeUp {
-    from {
-        opacity: 0;
-        transform: translateY(20px);
-    }
+#toast {
+    position: fixed;
 
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
+    right: 20px;
+    bottom: 20px;
+
+    background: var(--primary);
+    color: white;
+
+    padding: 14px 20px;
+
+    border-radius: 10px;
+
+    opacity: 0;
+    pointer-events: none;
+
+    transition: 0.3s;
+}
+
+#toast.show {
+    opacity: 1;
+}
+
+.reveal {
+    opacity: 0;
+    transform: translateY(30px);
+
+    transition: 0.6s;
+}
+
+.reveal.active {
+    opacity: 1;
+    transform: translateY(0);
 }
 
 @media (max-width: 768px) {
-    .nav-content {
+    nav {
+        position: fixed;
+
+        top: 70px;
+        right: -100%;
+
+        width: 220px;
+        height: 100vh;
+
+        background: var(--card);
+
         flex-direction: column;
-        gap: 15px;
+
+        padding: 30px;
+
+        transition: 0.3s;
     }
 
-    nav {
-        flex-wrap: wrap;
-        justify-content: center;
+    nav.show {
+        right: 0;
+    }
+
+    #menuButton {
+        display: block;
     }
 
     .hero h2 {
